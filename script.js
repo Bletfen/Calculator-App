@@ -74,12 +74,27 @@ let currentInput = "";
 let justCalculated = false;
 const operators = "+-*/";
 let isError = false;
+const MAX_LENGTH = 14;
 
 function handleNumberInput(value) {
+  if (currentInput.length >= MAX_LENGTH) return;
+
   if (justCalculated) {
-    currentInput = value;
+    currentInput = value === "0" ? "" : value;
     justCalculated = false;
   } else {
+    if (value === "0") {
+      if (currentInput === "0") {
+        return;
+      }
+    }
+
+    if (/^0$/.test(currentInput) && /^[1-9]$/.test(value)) {
+      currentInput = value;
+      textNumbers.textContent = currentInput;
+      return;
+    }
+
     if (value === ".") {
       if (currentInput === "" || /[+\-*/.]$/.test(currentInput)) {
         return;
@@ -104,7 +119,11 @@ function handleBtnOperator(operator) {
     if (currentInput === "" && operator !== "-") {
       return;
     }
-
+    if (isError) {
+      currentInput = "";
+      textNumbers.textContent = "";
+      isError = false;
+    }
     const lastChar = currentInput[currentInput.length - 1];
     if ("+-*/".includes(lastChar)) {
       currentInput = currentInput.slice(0, -1) + operator;
@@ -118,6 +137,11 @@ function handleBtnOperator(operator) {
 function handleDeleteBtn() {
   currentInput = currentInput.slice(0, -1);
   textNumbers.textContent = currentInput || 0;
+  if (isError) {
+    currentInput = "";
+    textNumbers.textContent = "";
+    isError = false;
+  }
 }
 
 function handleResetBtn() {
