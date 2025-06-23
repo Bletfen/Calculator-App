@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="calculator-header">
+        <div class="header-title">
+          <h1>calc</h1>
+        </div>
+
+        <div class="theme-changer">
+          <div class="theme-text">
+            <span>THEME</span>
+          </div>
+          <div class="theme-changer-rectangle">
+            <div class="numbers-container">
+              <span class="theme-number">1</span>
+              <span class="theme-number">2</span>
+              <span class="theme-number">3</span>
+            </div>
+            <div class="input-rectangle">
+              <svg
+                class="input-circle"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="8" cy="8" r="8" fill="#D03F2F" class="circle" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="display-wrapper">
+        <div class="display-text">
+          <span class="text-numbers">123</span>
+        </div>
+      </div>
+
+      <div class="keyboard">
+        <button class="btn-number btn"><span>7</span></button>
+        <button class="btn-number btn"><span>8</span></button>
+        <button class="btn-number btn"><span>9</span></button>
+        <button class="btn-delete delete btn"><span>DEL</span></button>
+
+        <button class="btn-number btn"><span>4</span></button>
+        <button class="btn-number btn"><span>5</span></button>
+        <button class="btn-number btn"><span>6</span></button>
+        <button class="btn-operator plus btn" data-operator="+">
+          <span>+</span>
+        </button>
+
+        <button class="btn-number btn"><span>1</span></button>
+        <button class="btn-number btn"><span>2</span></button>
+        <button class="btn-number btn"><span>3</span></button>
+        <button class="btn-operator minus btn" data-operator="-">
+          <span>-</span>
+        </button>
+
+        <button class="btn-number btn"><span>.</span></button>
+        <button class="btn-number btn"><span>0</span></button>
+        <button class="btn-operator divide btn" data-operator="/">
+          <span>/</span>
+        </button>
+        <button class="btn-operator product btn" data-operator="*">
+          <span>x</span>
+        </button>
+
+        <button class="resetBtn btn"><span>RESET</span></button>
+        <button class="equalBtn btn"><span>=</span></button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
